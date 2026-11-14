@@ -1,7 +1,7 @@
 ---
 name: deadline-tracker
 description: Track assignment and project deadlines in a small JSON file - add, list, see what is due soon, mark done.
-version: 1.0.1
+version: 1.0.2
 author: CSCI 599 A3 student
 license: MIT
 platforms: [macos, linux]
@@ -35,12 +35,16 @@ Every command prints JSON. Each item has `id`, `title`, `due`, `days_left` and `
 ## Procedure
 
 1. Dates must be `YYYY-MM-DD`. Turn relative dates ("next Friday") into a real date first.
-2. After `add`, confirm the title, the date and how many days are left.
+2. After `add`, confirm the title, the date and how many days are left. Run `add` once per deadline and
+   pass `--note` only when the user gave a note. Adding the same open title and date again changes
+   nothing: the script returns the existing item with `"already_exists": true`.
 3. For "what is due?", run `due --days 7` and list the items by date, overdue ones first.
 4. In a briefing, mention only items with `days_left` of 3 or less, one line each.
 5. Never invent a deadline. If the list is empty, say so.
 
 ## Pitfalls
 
+- Run each command once, in the foreground, and read its JSON output. They finish in well under a
+  second, so no background process or polling is needed.
 - `done` and `remove` need the numeric `id` shown by `list`, not the title.
 - An item due today has `days_left` 0 and status `due today`; a negative value means overdue.

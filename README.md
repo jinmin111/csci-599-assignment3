@@ -25,6 +25,7 @@ hermes skills tap add jinmin111/csci-599-assignment3
 hermes skills install jinmin111/csci-599-assignment3/deadline-tracker
 ```
 
-The published version is tagged `v1.0.1`. It passes Hermes's install-time security scan with the verdict
+The published version is tagged `v1.0.2`. It passes Hermes's install-time security scan with the verdict
 `safe`, so no `--force` is needed. (`v1.0.0` read one environment variable in a way the scanner flags
-and was blocked on a fresh install; `v1.0.1` changes that line only.)
+and was blocked on a fresh install; `v1.0.1` changes that line only. `v1.0.2` makes adding the same
+open deadline twice harmless, because a small model sometimes repeats a command.)

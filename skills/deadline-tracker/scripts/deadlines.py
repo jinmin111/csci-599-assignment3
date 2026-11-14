@@ -66,6 +66,11 @@ def add(title, due, note=""):
     if not title.strip():
         raise ValueError("title is empty")
     data = load()
+    for existing in data["items"]:
+        # The same open deadline again (an agent repeating a command): report it, do not duplicate it.
+        if (not existing.get("done") and existing["due"] == due
+                and existing["title"].strip().lower() == title.strip().lower()):
+            return dict(describe(existing), already_exists=True)
     item = {"id": data["next_id"], "title": title.strip(), "due": due, "note": note, "done": False}
     data["items"].append(item)
     data["next_id"] += 1
