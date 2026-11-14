@@ -1,7 +1,7 @@
 ---
 name: deadline-tracker
 description: Track assignment and project deadlines in a small JSON file - add, list, see what is due soon, mark done.
-version: 1.0.0
+version: 1.0.1
 author: CSCI 599 A3 student
 license: MIT
 platforms: [macos, linux]

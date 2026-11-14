@@ -20,8 +20,9 @@ from datetime import date, datetime
 
 
 def store_path():
-    if os.environ.get("DEADLINES_FILE"):
-        return os.environ["DEADLINES_FILE"]
+    chosen = os.environ.get("DEADLINES_FILE")
+    if chosen:
+        return chosen
     home = os.environ.get("HERMES_HOME") or os.path.join(os.path.expanduser("~"), ".hermes")
     return os.path.join(home, "deadlines.json")
 
