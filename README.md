@@ -10,4 +10,19 @@ made-up data. It is not offered to the public.
 
 - [Privacy policy](PRIVACY.md)
 
-The `deadline-tracker` skill of this project will be published in this repository.
+## Hermes skill tap: `deadline-tracker`
+
+This repository is a Hermes skill tap. It publishes one skill written for the project:
+
+- [`skills/deadline-tracker`](skills/deadline-tracker/SKILL.md) — keep a short list of assignment and
+  project deadlines in one JSON file: add, list, see what is due soon, mark done. The helper script
+  uses only the Python standard library and needs no credentials.
+
+Install it with the Hermes skill hub (tested with Hermes Agent v0.22.7):
+
+```bash
+hermes skills tap add jinmin111/csci-599-assignment3
+hermes skills install jinmin111/csci-599-assignment3/deadline-tracker
+```
+
+The published version is tagged `v1.0.0`.
